@@ -1,11 +1,7 @@
 <template>
     <div id="Carrito">
-                <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h2> Hola!  <span> {{username}}, </span>este es tu Carrito!</h2> 
+
+        <h2> !Estás a un paso de completar tu compra!</h2> 
         <section class="products-grid">
             <CarritoCard
                 v-for="product in consultarCarritoCliente"
@@ -183,7 +179,7 @@ import CarritoCard from '@/components/CarritoCard'
 
     #Carrito h2{
         font-size: 50px;
-        color: #4fa1ff;
+        color: #2BAEB7;
     }
     .products-grid {
         display: flex;
@@ -198,7 +194,7 @@ import CarritoCard from '@/components/CarritoCard'
     }
 
     #Carrito span{
-        color: crimson;
+        color: #2BAEB7;
         font-weight: bold;
     }
     #Carrito .formulario {

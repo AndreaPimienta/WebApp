@@ -1,7 +1,7 @@
 <template>
     <div id="Orders">
 
-        <h2> Hola!  <span> {{username}}, </span>estas son las compras que has realizado!</h2>
+        <h2> ¡Estas son las compras que has realizado!</h2>
         <br />
 <!--         <table id="customers">
             <tr>
@@ -40,9 +40,19 @@
             </tr>
         </table>
         <br />
-
+    <footer>
+        <h3> Conoce el estado de tu pedido
+            <h6>
+            <br />1: Compra en proceso.
+            <br />2: Compra realizada, pendiente despacho.
+            <br />3: Compra finalizada.
+            <br />4: Compra cancelado.
+            </h6>
+        </h3>
+    </footer>
         
     </div>
+
 </template>
 
 <script>
@@ -128,18 +138,24 @@ import gql from "graphql-tag";
         font-size: 50px;
         margin-right: 150px;
         margin-left: 80px;
-        color: #4fa1ff;
+        color: #2baeb7
+    }
+    #Orders h6{
+        margin-right: 150px;
+        margin-left: 80px;
+        color: #2baeb7;
+        text-align: justify;
     }
     #Orders h3{
         font-size: 50px;
         margin-right: 150px;
         margin-left: 80px;
 
-        color: #4fa1ff;
+        color: #2baeb7;
     }
 
     #Orders span{
-        color: crimson;
+        color: #2baeb7;
         font-weight: bold;
     }
     .products-grid {
@@ -173,7 +189,7 @@ import gql from "graphql-tag";
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: #2baeb7;
     color: white;
     }
     

@@ -1,6 +1,6 @@
 <template>
     <div id="User">
-        <h2> Hola!  <span> {{username}}, </span>Vive una explosión de sabores al estilo Peruano!</h2>
+        <h2> ¡Hola <span> {{username}}, </span>vive una explosión de sabores al estilo Peruano!</h2>
     </div>
 </template>
 
