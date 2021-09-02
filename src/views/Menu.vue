@@ -5,7 +5,7 @@
         <br />
         <br />
         <br />
-        <h2> <span>{{username}}, </span>conoce nuestro menú!</h2>
+        <h2> <span>{{username}} </span>Conoce nuestro menú!</h2>
         
 
         <section class="products-grid">
