@@ -5,6 +5,7 @@ import UserAuth from './components/UserAuth'
 import Menu from './views/Menu'
 import Register from './views/Register'
 import Carrito from './views/Carrito'
+import Orders from './views/Orders'
 
 const routes = [{
         path: '/',
@@ -35,6 +36,11 @@ const routes = [{
         path: '/carrito/',
         name: "carrito",
         component: Carrito
+    },
+    {
+        path: '/orders/',
+        name: "orders",
+        component: Orders
     },
 ]
 

@@ -101,9 +101,9 @@ export default {
       });
     },
 
-    historial: function () {
+    ordenes: function () {
       this.$router.push({
-        name: "historial",
+        name: "orders",
         params: { username: localStorage.getItem("current_username") },
       });
     },
@@ -180,10 +180,11 @@ export default {
 
   .main-component{
     height: auto;
-    height: 90vh;
+    min-height: 90vh;
     margin: 0%;
     padding: 0%;
-    margin-bottom: 0%;
+    margin-bottom: 20vh;
+    margin-top: 10vh;
     
   }
   body{

@@ -8,7 +8,7 @@
         <h2> Hola!  <span> , </span>este es nuestro menú</h2>
         
 
-        <section v-if="products.length > 0" class="products-grid">
+        <section class="products-grid">
             <ProductCard
                 v-for="product in carta"
                 :key="product.id_producto"

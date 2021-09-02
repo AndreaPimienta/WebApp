@@ -144,6 +144,7 @@ import gql from "graphql-tag";
     #Register{
         width: 100%;
         height: 100%;
+        min-height: 90vh;
 
         display: flex;
         flex-direction: column;
@@ -170,8 +171,8 @@ import gql from "graphql-tag";
     font-weight: bold;
     margin-bottom: 1%;
     width: 150%;
-}
-#Register .form-group col-md-4{
+    }
+    #Register .form-group col-md-4{
     width: 150%
-}
+    }
 </style>

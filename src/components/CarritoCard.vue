@@ -1,8 +1,8 @@
 <template>
     <div class="card">
-        <h4>{{ product.id_producto }}</h4>
-        <h4>{{ product.cantidad }}</h4>
-        <h4>{{ product.valor_total }}</h4>
+        <h4>Producto  {{ product.id_producto }}</h4>
+        <h4>Cantidad: {{ product.cantidad }}</h4>
+        <h4>Precio:  $ {{ product.valor_total }}</h4>
         <hr>
         <button @click="deleteToCart()" >Eliminar producto</button>
     </div>

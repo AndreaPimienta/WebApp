@@ -5,8 +5,8 @@
         <br />
         <br />
         <br />
-        <h2> Hola!  <span> {{username}}, </span>este es tu Carrito!</h2> <br>
-        <section v-if="consultarCarritoCliente.lenght > 0" class="products-grid">
+        <h2> Hola!  <span> {{username}}, </span>este es tu Carrito!</h2> 
+        <section class="products-grid">
             <CarritoCard
                 v-for="product in consultarCarritoCliente"
                 :key="product.id_detalles_order"
@@ -14,7 +14,8 @@
                 @delete="deleteToCart($event)"
             />
         </section> <br />
-        <h2> {{consultarCarritoCliente}}</h2>
+
+
         <label for="adress">Dirección:</label><br>
         <input type="text" class="form-control" id="adress" name="adress" value="" placeholder="Cra. 24 # ..."/><br />
         <button type="button" class="btn btn-warning"  v-on:click="cleanCarrito">Vaciar carrito</button> <br />
@@ -25,8 +26,10 @@
 
 <script>
 import gql from "graphql-tag";
+import CarritoCard from '@/components/CarritoCard'
     export default {
         name: "Carrito",
+        components: { CarritoCard },
 
         data:function(){
             return {
@@ -37,11 +40,17 @@ import gql from "graphql-tag";
                 id_order:0,
                 id:0,
                 address_order: "",
+                total: 0,
             }
         },
 
         created: function(){
             this.username = this.$route.params.username
+        
+        },
+        beforeCreate: function() {
+            console.log(2)
+            
         },
         methods:{
             init: function () {
@@ -127,7 +136,8 @@ import gql from "graphql-tag";
                     }).catch((error) => {
                         alert("Houston tenemos un problema")
                     });
-            }
+            },
+
             
         },
         apollo: {
@@ -159,14 +169,16 @@ import gql from "graphql-tag";
     }
     #Carrito{
         width: 100%;
+        min-height: 160vh;
         height: auto;
-        min-height: 150vh;
+        
         flex-direction: column;
 
         display: flex;
         justify-content: center;    
         align-items: center;
         background: rgb(255, 255, 255);
+        margin-bottom: 0%;
     }
 
     #Carrito h2{
@@ -188,5 +200,15 @@ import gql from "graphql-tag";
     #Carrito span{
         color: crimson;
         font-weight: bold;
+    }
+    #Carrito .formulario {
+    color:  #000000;
+        align-content: center;
+        display: grid;
+        grid: auto / auto auto;
+        margin-left: 0%;
+        font-weight: bold;
+        margin-bottom: 1%;
+        width: 150%;
     }
 </style>

@@ -82,7 +82,8 @@ export default {
     .auth_user{
         margin: 0;
         padding: 0%;
-        height: 100%;
+        height: auto;
+        min-height: 90vh;
         width: 100%;    
         display: flex;
         justify-content: center;
