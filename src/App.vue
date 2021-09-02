@@ -1,85 +1,122 @@
 <template>
- <div id="app" class="app">
- <div class="header">
- <h1>Encanto Peruano</h1>
-<nav>
- <button v-on:click="init" v-if="is_auth" > Inicio </button>
- <button v-on:click="logOut" v-if="is_auth" > Cerrar Sesión </button>
-</nav>
- </div>
- <div class="main-component">
- <router-view v-on:log-in="logIn"></router-view>
- </div>
- <div class="footer">
-   <h2>Estamos ubicados en <br> Calle 119 No. 4-34, Bogotá Colombia</h2>
-  <h3>Contactanos <br> Tel: 3154276<br> celular:3206565434 <br> encantoperuano@gmail.com </h3>
- </div>
- </div>
+  <div id="app" class="app">
+    <div class="header">
+      <img src="./assets/logo1.png">
+      
+      <nav>
+        <button v-on:click="init" v-if="is_auth" > Inicio </button>
+        <button v-on:click="productos" v-if="is_auth" > Productos </button>
+        <button v-on:click="carrito" v-if="is_auth" > Carrito </button>
+        <button v-on:click="ordenes" v-if="is_auth" > Ordenes </button>
+        <button v-on:click="logOut" v-if="is_auth" > Cerrar Sesión </button>
+        
+      </nav>
+    </div>
+    <div class="main-component">
+      <router-view v-on:log-in="logIn"></router-view>
+    </div>
+    <div class="footer">
+      <h4>Estamos ubicados en <br> Calle 119 No. 4-34, Bogotá Colombia</h4>
+      <h4>Contactanos <br> Tel:     3154276<br> Celular: 3206565434 <br> Email: encantoperuano@gmail.com </h4>
+    </div>
+  </div>
 </template>
 
 <script>
 import gql from 'graphql-tag'
-export default {
- name: 'App',
-  data: function(){
- return{
- is_auth: false
- }
- },
- created: function(){
- this.updateAccessToken();
- },
- methods:{
- updateAccessToken: async function(){
- if(localStorage.getItem('refresh_token')==null){
- this.$router.push({name: "user_auth"})
- this.is_auth = false
- return;
- }
- await this.$apollo.mutate({
- mutation: gql`
- mutation ($refreshTokenRefresh: String!) {
- refreshToken(refresh: $refreshTokenRefresh) {
- access
- }
- }`
- ,
- variables: {
- refreshTokenRefresh: localStorage.getItem('refresh_token')
- }
- }).then((result) => {
- localStorage.setItem('access_token', result.data.refreshToken.access)
- this.is_auth = true
- }).catch((error) => {
- alert("Su sesión expiró, vuelva a iniciar sesión.")
- this.$router.push({name: "user_auth"})
- this.is_auth = false
- });
- },
- logIn: async function(data, username){
-   localStorage.setItem('access_token', data.access)
- localStorage.setItem('refresh_token', data.refresh)
- localStorage.setItem('user_id', data.user_id)
- localStorage.setItem('current_username', username)
- await this.updateAccessToken();
- if(this.is_auth) this.init();
- },
- init: function(){
- this.$router.push({
- name: "user",
- params:{ username: localStorage.getItem("current_username") }
- })
- },
- logOut: async function(){
- localStorage.removeItem('access_token')
- localStorage.removeItem('refresh_token')
- localStorage.removeItem('user_id')
- localStorage.removeItem('current_username')
- await this.updateAccessToken();
- }
- }
 
-}
+export default {
+  name: "App",
+
+  data: function () {
+    return {
+      is_auth: false,
+    };
+  },
+
+  created: function () {
+    this.updateAccessToken();
+  },
+  methods: {
+    updateAccessToken: async function () {
+      if (localStorage.getItem("refresh_token") == null) {
+        this.$router.push({ name: "user_auth" });
+        this.is_auth = false;
+        return;
+      }
+
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation ($refreshTokenRefresh: String!) {
+              refreshToken(refresh: $refreshTokenRefresh) {
+                access
+              }
+            }
+          `,
+          variables: {
+            refreshTokenRefresh: localStorage.getItem("refresh_token"),
+          },
+        })
+        .then((result) => {
+          localStorage.setItem("access_token", result.data.refreshToken.access);
+          this.is_auth = true;
+        })
+        .catch((error) => {
+          alert("Su sesión expiró, vuelva a iniciar sesión.");
+          this.$router.push({ name: "user_auth" });
+          this.is_auth = false;
+          localStorage.clear();
+        });
+    },
+
+    logIn: async function (data, username) {
+      localStorage.setItem("access_token", data.access);
+      localStorage.setItem("refresh_token", data.refresh);
+      localStorage.setItem("user_id", data.user_id);
+      localStorage.setItem("current_username", username);
+
+      await this.updateAccessToken();
+      if (this.is_auth) this.init();
+    },
+
+    init: function () {
+      this.$router.push({
+        name: "user",
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+
+    productos: function () {
+      this.$router.push({
+        name: "menu",
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+
+    carrito: function () {
+      this.$router.push({
+        name: "carrito",
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+
+    historial: function () {
+      this.$router.push({
+        name: "historial",
+        params: { username: localStorage.getItem("current_username") },
+      });
+    },
+    logOut: async function () {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("current_username");
+
+      await this.updateAccessToken();
+    },
+  },
+};
 </script>
 
 <style>
@@ -92,12 +129,14 @@ export default {
     left: 0px;
     top: 0px;
     width: 100%;
-    height: 100px;
+    height: 15vh;
+    min-height: 100px;
     margin: 0%;
     padding: 0;
 
-    background-color: #ffff ;
+    background-color: #ffffff ;
     color:#2BAEB7  ;
+    border-bottom: 1px solid #f5a018;
 
     display: flex;
     justify-content: space-between;
@@ -107,6 +146,10 @@ export default {
   .header h1{
     width: 20%;
     text-align: center;
+  }
+  .header img{
+    height: 95%;
+    margin: 2rem
   }
 
   .header nav {
@@ -136,25 +179,37 @@ export default {
   }
 
   .main-component{
-    height: 75vh;
+    height: auto;
+    height: 90vh;
     margin: 0%;
     padding: 0%;
-
-    background: #FDFEFE ;
+    margin-bottom: 0%;
+    
   }
- 
+  body{
+    margin: 0%;
+    
+    background-position: 200%;
+  }
   .footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: center;
     position: fixed;
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: 75px;
+    height: 110px;
+    
 
     background-color: #2BAEB7;
     color: #ffff;
   }
 
-  .footer h2{
+  .footer h1{
     margin: 0px;
     width: 100%;
     height: 100%;
