@@ -4,7 +4,8 @@
       <img src="./assets/logo1.png">
       
       <nav>
-        <button v-on:click="init" v-if="is_auth" > Inicio </button>
+        <button v-on:click="init" v-if="is_auth"> Inicio </button>
+        <button v-on:click="volver" v-if="is_auth==0"> Home</button>
         <button v-on:click="productos" v-if="is_auth" > Productos </button>
         <button v-on:click="carrito" v-if="is_auth" > Carrito </button>
         <button v-on:click="ordenes" v-if="is_auth" > Ordenes </button>
@@ -87,6 +88,15 @@ export default {
       });
     },
 
+    volver: async function () {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("current_username");
+
+    await this.updateAccessToken();
+    },
+
     productos: function () {
       this.$router.push({
         name: "menu",
@@ -164,9 +174,9 @@ export default {
   }
 
   .header nav button{
-    color: #E5E7E9;
-    background: #283747;
-    border: 1px solid #E5E7E9;
+    color: #2BAEB7;
+    background: #ffff;
+    border: 1px solid #ffff;
 
     border-radius: 5px;
     padding: 10px 20px;

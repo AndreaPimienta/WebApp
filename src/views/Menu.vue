@@ -5,7 +5,7 @@
         <br />
         <br />
         <br />
-        <h2> Hola!  <span> , </span>este es nuestro menú</h2>
+        <h2> <span>{{username}}, </span>conoce nuestro menú!</h2>
         
 
         <section class="products-grid">
@@ -156,11 +156,11 @@ import ProductCard from '@/components/ProductCard'
 
     #Menu h2{
         font-size: 50px;
-        color: #4fa1ff;
+        color: #2BAEA7;
     }
 
     #Menu span{
-        color: crimson;
+        color: #2BAEA7;
         font-weight: bold;
     }
     .products-grid {

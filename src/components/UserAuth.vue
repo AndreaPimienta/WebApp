@@ -75,8 +75,16 @@ export default {
 <style>
     body{
         margin: 0%;
-        background-image: url("../assets/ceviche.jpg");
-        background-position: 30%;
+        background-image: 
+            url("../assets/ceviche.jpg") no-repeat center center fixed;
+             -webkit-background-size: cover;
+             -moz-background-size: cover;
+             -o-background-size: cover;
+             background-size: cover;
+            
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; 
     }
 
     .auth_user{
@@ -96,7 +104,7 @@ export default {
     }
 
     .container_auth_user {
-        border: 3px solid  #283747;
+        border: 3px solid  #ffff;
         border-radius: 10px;
         width: 25%;
         height: 60%;
@@ -125,7 +133,7 @@ export default {
         padding: 10px 20px;
         margin: 5px 0;
 
-        border: 1px solid #283747;
+        border: 1px solid #2BAEB7;
         
     }
 
@@ -134,7 +142,7 @@ export default {
         height: 40px;
 
         color: #E5E7E9;
-        background: #283747;
+        background: #2BAEB7;
         border: 1px solid #E5E7E9;
 
         border-radius: 5px;
@@ -144,18 +152,18 @@ export default {
 
     .auth_user button:hover{
         color: #E5E7E9;
-        background: crimson;
-        border: 1px solid #283747;
+        background: #2BAEB7;
+        border: 1px solid #2BAEB7;
     }
     #AuthUser .btn-warning{
     color: #E5E7E9;
-    background: #283747;
+    background: #2BAEB7;
     border: 1px solid #E5E7E9;
     width: 50%;
     }
     #AuthUser .btn-warning:hover{
         color: #E5E7E9;
-        background: crimson;
-        border: 1px solid #283747;
+        background: #2BAEB7;
+        border: 1px solid #2BAEB7;
     }
 </style>

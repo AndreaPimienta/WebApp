@@ -38,11 +38,14 @@
 
     #User h2{
         font-size: 50px;
-        color: #4fa1ff;
+        color: #ffff;
+        display: center;
+        justify-content: center;
+        text-align: center;
     }
 
     #User span{
-        color: crimson;
+        color: #ffff;
         font-weight: bold;
     }
 </style>

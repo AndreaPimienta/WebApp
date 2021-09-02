@@ -1,11 +1,11 @@
 <template>
 
     <div id="Register">
-
+    
         <h2> REGISTRO DE CLIENTES</h2>
         <form>
             <div class = "formulario" >
-                    
+                   
                     <div class="form-group col-md-4">
                         <label for="name">Nombre:</label> <br>
                         <input type="text" class="form-control" id="name" name="name" value="" placeholder="Nombre"/>
@@ -44,7 +44,7 @@
             <div class="botones">
                 <div style='text-align:center'>
                     <right>
-                        <button type="button" class="btn btn-warning"  v-on:click="makeCliente">Registrarse</button>
+                        <button type="button" class="btn btn-info"  v-on:click="makeCliente">Registrarse</button>
                     </right>
                 </div>
             </div>
@@ -141,6 +141,16 @@ import gql from "graphql-tag";
         
         background-position: 30%;
     }
+
+    .botones button{
+    color: #ffff;
+    background: #2BAEB7;
+    border: 1px solid #2BAEB7;
+
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+
     #Register{
         width: 100%;
         height: 100%;
@@ -154,8 +164,8 @@ import gql from "graphql-tag";
     }
 
     #Register h2{
-        font-size: 50px;
-        color: #4fa1ff;
+        font-size: 35px;
+        color: #ffff;
     }
 
     #Register span{
