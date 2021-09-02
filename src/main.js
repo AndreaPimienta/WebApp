@@ -6,18 +6,8 @@ import { createApolloProvider } from '@vue/apollo-option'
 
 import { setContext } from 'apollo-link-context'
 
-
-/* import Vue from 'vue'
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons) */
-
 const httpLink = createHttpLink({
-    uri: 'http://localhost:4000/',
+    uri: 'https://api-gateway-restaurante-g4.herokuapp.com/',
 })
 
 const authLink = setContext((_, { headers }) => {

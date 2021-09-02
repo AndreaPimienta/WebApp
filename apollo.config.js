@@ -4,7 +4,7 @@ module.exports = {
         service: {
             name: 'API Gateway',
             // URL to the GraphQL API
-            url: 'http://localhost:4000/',
+            url: 'https://api-gateway-restaurante-g4.herokuapp.com/',
         },
         // Files processed by the extension
         includes: [
