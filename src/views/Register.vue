@@ -154,11 +154,11 @@ import gql from "graphql-tag";
 
     #Register h2{
         font-size: 50px;
-        color: #4fa1ff;
+        color: #2baeb7;
     }
 
     #Register span{
-        color: crimson;
+        color: #2baeb7;
         
     }
     #Register .formulario {
@@ -174,4 +174,13 @@ import gql from "graphql-tag";
 #Register .form-group col-md-4{
     width: 150%
 }
+
+  .botones button{
+    color: #ffff;
+    background: #2BAEB7;
+    border: 1px solid #2BAEB7;
+
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
 </style>
