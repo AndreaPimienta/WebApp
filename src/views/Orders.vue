@@ -34,7 +34,7 @@
 
             <tr v-for="transacction in consultarOrdenesCliente" :key="transacction.id_order">
                 <td>{{ transacction.id_order }}</td>
-                <td>{{ transacction.precio_total }}</td>
+                <td>$ {{ transacction.precio_total }}</td>
                 <td>{{ transacction.address_order }}</td>
                 <td>{{ transacction.estado_order_id }}</td>
             </tr>
@@ -179,6 +179,7 @@ import gql from "graphql-tag";
     #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
     }
 
     #customers tr:nth-child(even){background-color: #f2f2f2;}
@@ -188,7 +189,7 @@ import gql from "graphql-tag";
     #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #2baeb7;
     color: white;
     }
